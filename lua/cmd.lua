@@ -18,6 +18,7 @@ vim.cmd [[
   augroup end
 ]]
 
+-- Make :find useful
 cmd('set path=$PWD/src/**')
 cmd('set path+=$PWD/test/**')
 
