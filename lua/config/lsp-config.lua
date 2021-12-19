@@ -9,6 +9,16 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
+
+  -- Format on autosave - https://github.com/jose-elias-alvarez/null-ls.nvim
+  if client.resolved_capabilities.document_formatting then
+    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+  end
+
+  -- Disable formatting conflicts - https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
+  client.resolved_capabilities.document_formatting = false
+  client.resolved_capabilities.document_range_formatting = false
+
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -34,6 +44,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<Leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)        
   -- buf_set_keymap('n', '<Leader>do', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)                     -- Use trouble instead 
   -- buf_set_keymap('n', '<Leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
 
 end
 

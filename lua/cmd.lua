@@ -18,6 +18,10 @@ vim.cmd [[
   augroup end
 ]]
 
+-- vim.cmd [[
+--   au BufWritePost <buffer> lua require('lint').try_lint()
+-- ]]
+
 -- Make :find useful
 cmd('set path=$PWD/src/**')
 cmd('set path+=$PWD/test/**')

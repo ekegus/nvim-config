@@ -21,10 +21,11 @@ opt.scrolloff = 5
 opt.splitright = true
 
 opt.tabstop = 2                         -- Number of spaces for a tab
-
 opt.shiftwidth = 2                      -- Number of spaces for indentation
-
 opt.expandtab = true                    -- User appropriate number of spaces for tab in insert mode
+opt.foldmethod = "indent"
+opt.foldenable = false
+
 
 -- Avoid E37 on buffer change
 -- https://medium.com/usevim/vim-101-set-hidden-f78800142855
