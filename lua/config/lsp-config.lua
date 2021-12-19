@@ -2,6 +2,7 @@
 -- https://github.com/neovim/nvim-lspconfig
 
 local nvim_lsp = require 'lspconfig'
+-- local ts_utils = require 'ts_utils'
 
 -- Use an on_attach function to only map the following keys
 -- after the language server attaches to the current buffer
@@ -9,7 +10,8 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
-
+  --- TS SERVER STUFF -----------------------------
+  -- TODO: Figure out how to only do this for ts-server
   -- Format on autosave - https://github.com/jose-elias-alvarez/null-ls.nvim
   if client.resolved_capabilities.document_formatting then
     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
@@ -19,6 +21,15 @@ local on_attach = function(client, bufnr)
   client.resolved_capabilities.document_formatting = false
   client.resolved_capabilities.document_range_formatting = false
 
+  -- Avoid duplicate diagnostics warning between ts-server/prettier and eslint 
+  -- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils
+  local ts_utils = require("nvim-lsp-ts-utils")
+  ts_utils.setup({
+    filter_out_diagnostics_by_code = {6133},
+    ts_utils.setup_client(client)
+  }) 
+  ------------------------------------------------
+  
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 
@@ -44,6 +55,7 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<Leader>dn', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)        
   -- buf_set_keymap('n', '<Leader>do', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)                     -- Use trouble instead 
   -- buf_set_keymap('n', '<Leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opts)
+
 
 
 end

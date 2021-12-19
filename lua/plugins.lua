@@ -40,8 +40,10 @@ use{
     "jose-elias-alvarez/null-ls.nvim",
     requires = { "nvim-lua/plenary.nvim" },
 }
-
-
+use{
+    "jose-elias-alvarez/nvim-lsp-ts-utils",
+    requires = { "nvim-lua/plenary.nvim" },
+}
 -- Experiment with completion engine and snippets
 -- Completions and snippets -- example: https://github.com/hrsh7th/nvim-cmp
 use {"hrsh7th/nvim-cmp"} -- Autocompletion plugin
