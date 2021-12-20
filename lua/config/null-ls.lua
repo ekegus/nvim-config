@@ -14,7 +14,3 @@ local sources = {
 }
 
 null_ls.setup({ sources = sources })
-
-
--- Local executables
--- 1. Duplicate diagnostics errors from eslint and prettier/typescript.
