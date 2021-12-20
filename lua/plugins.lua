@@ -30,7 +30,6 @@ packer.reset()
 -- actual plugins list
 use "wbthomason/packer.nvim" -- Package manager
 use "tpope/vim-commentary" -- "gc" to comment visual regions/lines
-use "haishanh/night-owl.vim"
 use { "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } }
 use {"neovim/nvim-lspconfig"} -- https://github.com/neovim/nvim-lspconfig -- Collection of configurations for built-in LSP 
 use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"} -- Imrpoved diagnostics tool
@@ -44,11 +43,16 @@ use{
     "jose-elias-alvarez/nvim-lsp-ts-utils",
     requires = { "nvim-lua/plenary.nvim" },
 }
+use "lukas-reineke/indent-blankline.nvim"
+
 -- Experiment with completion engine and snippets
 -- Completions and snippets -- example: https://github.com/hrsh7th/nvim-cmp
 use {"hrsh7th/nvim-cmp"} -- Autocompletion plugin
 use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
 use 'saadparwaiz1/cmp_luasnip' -- Completion source
 use 'L3MON4D3/LuaSnip' -- Snippets engine
-use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'} -- Completion source
+
+-- Theme
+use 'marko-cerovac/material.nvim'
+
 

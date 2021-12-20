@@ -1,6 +1,9 @@
 -- Theme
 vim.opt.termguicolors = true
-vim.cmd 'colorscheme night-owl'
+
+vim.g.material_style = "deep ocean"
+
+vim.cmd[[colorscheme material]]
 
 -- Vim mappings
 require("map")
@@ -14,6 +17,7 @@ require("config/git-signs")
 require("config/trouble")
 require("config/lsp-config")
 require("config/nvim-cmp")
-require("config/tabnine")
 require("config/treesitter")
 require("config/null-ls")
+require("config/indent-blankline")
+

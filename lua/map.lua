@@ -19,3 +19,5 @@ map('', 'Q', '<Nop>', {noremap = false})                                -- Disab
 map('n', '<Leader>fi', ':find<Space>', {noremap = true})                -- Open :find
 map('n', '<Leader>gi', ':grep -i<Space>', {noremap = true})             -- Open :grep with insensitive search
 
+vim.api.nvim_set_keymap('n', '<leader>mm', [[<Cmd>lua require('material.functions').toggle_style()<CR>]], { noremap = true, silent = true })
+
