@@ -20,4 +20,3 @@ require("config/nvim-cmp")
 require("config/treesitter")
 require("config/null-ls")
 require("config/indent-blankline")
-

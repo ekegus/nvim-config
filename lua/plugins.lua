@@ -49,8 +49,10 @@ use "lukas-reineke/indent-blankline.nvim"
 -- Completions and snippets -- example: https://github.com/hrsh7th/nvim-cmp
 use {"hrsh7th/nvim-cmp"} -- Autocompletion plugin
 use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
-use 'saadparwaiz1/cmp_luasnip' -- Completion source
-use 'L3MON4D3/LuaSnip' -- Snippets engine
+
+use 'hrsh7th/cmp-vsnip' -- https://github.com/hrsh7th/cmp-vsnip/tree/0abfa1860f5e095a07c477da940cfcb0d273b700
+use 'hrsh7th/vim-vsnip' -- Snippet engine -- https://github.com/hrsh7th/vim-vsnip
+use "rafamadriz/friendly-snippets" -- https://github.com/rafamadriz/friendly-snippets
 
 -- Theme
 use 'marko-cerovac/material.nvim'
