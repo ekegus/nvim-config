@@ -22,26 +22,10 @@ local on_attach = function(client, bufnr)
     }
   )
 
-  --- TS SERVER STUFF -----------------------------
-  -- TODO: Figure out how to only do this for ts-server
-  -- Format on autosave - https://github.com/jose-elias-alvarez/null-ls.nvim
-  if client.resolved_capabilities.document_formatting then
+ -- if client.resolved_capabilities.document_formatting then
     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
-  end
+ -- end
 
-  -- Disable formatting conflicts - https://github.com/jose-elias-alvarez/null-ls.nvim/wiki/Avoiding-LSP-formatting-conflicts
-  client.resolved_capabilities.document_formatting = false
-  client.resolved_capabilities.document_range_formatting = false
-
-  -- Avoid duplicate diagnostics warning between ts-server/prettier and eslint 
-  -- https://github.com/jose-elias-alvarez/nvim-lsp-ts-utils
-  local ts_utils = require("nvim-lsp-ts-utils")
-  ts_utils.setup({
-    filter_out_diagnostics_by_code = {6133},
-    ts_utils.setup_client(client)
-  }) 
-  ------------------------------------------------
-  
   -- Enable completion triggered by <c-x><c-o>
   buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
 

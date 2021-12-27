@@ -35,17 +35,9 @@ use {"neovim/nvim-lspconfig"} -- https://github.com/neovim/nvim-lspconfig -- Col
 use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"} -- Imrpoved diagnostics tool
 use { "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } } -- UI to select things (files, grep results, open buffers...)
 use "nvim-treesitter/nvim-treesitter"
-use{
-    "jose-elias-alvarez/null-ls.nvim",
-    requires = { "nvim-lua/plenary.nvim" },
-}
-use{
-    "jose-elias-alvarez/nvim-lsp-ts-utils",
-    requires = { "nvim-lua/plenary.nvim" },
-}
 use "lukas-reineke/indent-blankline.nvim"
+use "mhartington/formatter.nvim"
 
--- Experiment with completion engine and snippets
 -- Completions and snippets -- example: https://github.com/hrsh7th/nvim-cmp
 use {"hrsh7th/nvim-cmp"} -- Autocompletion plugin
 use "hrsh7th/cmp-nvim-lsp" -- LSP source for nvim-cmp
@@ -65,6 +57,3 @@ use {
 }
 
 use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
-
-
-use { 'glepnir/dashboard-nvim' }
