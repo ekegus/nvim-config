@@ -10,6 +10,18 @@ local on_attach = function(client, bufnr)
   local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
   local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
 
+  -- https://github.com/bluz71/vim-nightfly-guicolors
+  vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(
+    vim.lsp.handlers.hover, {
+      border = 'single'
+    }
+  )
+  vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(
+    vim.lsp.handlers.signatureHelp, {
+      border = 'single'
+    }
+  )
+
   --- TS SERVER STUFF -----------------------------
   -- TODO: Figure out how to only do this for ts-server
   -- Format on autosave - https://github.com/jose-elias-alvarez/null-ls.nvim
@@ -56,7 +68,7 @@ capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
 -- Use a loop to conveniently call 'setup' on multiple servers and
 -- map buffer local keybindings when the language server attaches
-local servers = { 'tsserver' }
+local servers = { 'tsserver', 'eslint' }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup {
     on_attach = on_attach,

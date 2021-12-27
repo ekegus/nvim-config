@@ -1,0 +1,14 @@
+{
+  "coc.preferences.formatOnSaveFiletypes": [
+    "javascript",
+    "html",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "javascriptreact",
+    "typescript.tsx",
+    "rust"
+  ],
+  "coc.preferences.extensionUpdateCheck": "daily",
+  "diagnostic.errorSign": "✘"
+}
