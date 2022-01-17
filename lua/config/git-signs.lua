@@ -10,6 +10,7 @@ require('gitsigns').setup {
     ['n gp'] = { expr = true, "&diff ? 'gp' : '<cmd>Gitsigns prev_hunk<CR>'"},
     ['v <Leader>gu'] = ':Gitsigns reset_hunk<CR>',
     ['n <leader>gu'] = '<cmd>Gitsigns reset_hunk<CR>',
+    ['n <leader>gd'] = '<cmd>Gitsigns diffthis<CR>',
   },
 }
 

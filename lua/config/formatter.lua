@@ -25,6 +25,8 @@ format.setup {
   },
 }
 
+vim.api.nvim_set_keymap('n', '<leader>fo', ':Format<CR>', { noremap = true, silent = true })
+
 -- Autocommand for formatting on save
 vim.api.nvim_exec([[
 augroup FormatAutogroup

@@ -22,8 +22,9 @@ local on_attach = function(client, bufnr)
     }
   )
 
+  -- AUTO FORMAT WITH LSP
  -- if client.resolved_capabilities.document_formatting then
-    vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
+ --     vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
  -- end
 
   -- Enable completion triggered by <c-x><c-o>
@@ -35,6 +36,7 @@ local on_attach = function(client, bufnr)
   -- See `:help vim.lsp.*` for documentation on any of the below functions
    buf_set_keymap('n', '<Leader>sd', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
    buf_set_keymap('n', '<Leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
+   buf_set_keymap('n', '<Leader>df', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 end
 
 -- Customise the icons in the gutter

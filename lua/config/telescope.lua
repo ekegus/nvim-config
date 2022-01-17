@@ -1,19 +1,25 @@
+local trouble = require("trouble.providers.telescope")
+
 require('telescope').setup {
   defaults = {
     file_ignore_patterns = {"node_modules"},
     mappings = {
       i = {
         ['<C-u>'] = false,
+        ["<c-t>"] = trouble.open_with_trouble,
         ['<C-d>'] = false,
       },
+      n = { ["<c-t>"] = trouble.open_with_trouble },
     },
   },
 }
 
+-- Launch Telescope
+vim.api.nvim_set_keymap('n', '<leader><leader>', ':Telescope<CR>', { noremap = true, silent = true })
+
 -- File Pickers
 vim.api.nvim_set_keymap('n', '<leader>fw', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>ff', [[<cmd>lua require('telescope.builtin').find_files()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>ft', [[<cmd>lua require('telescope.builtin').file_browser()<CR>]], { noremap = true, silent = true })
 
 
 -- Vim Pickers
