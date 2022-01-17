@@ -26,5 +26,4 @@ require("config/indent-blankline")
 require("config/formatter")
 -- TODO
 -- 1. Take a look at these settings: https://github.com/jose-elias-alvarez/dotfiles/blob/main/config/nvim/lua/plugins/init.lua
--- 2. Refactor eslint and ts server into separate modules
--- 3. Import config in a better way. 
+-- 2. Import config in a better way. 
