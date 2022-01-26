@@ -34,11 +34,11 @@ use { "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } }
 use {"neovim/nvim-lspconfig"} -- https://github.com/neovim/nvim-lspconfig -- Collection of configurations for built-in LSP 
 use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"} -- Imrpoved diagnostics tool
 use { "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } } -- UI to select things (files, grep results, open buffers...)
+use { "nvim-telescope/telescope-file-browser.nvim" }
+use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 use "nvim-treesitter/nvim-treesitter"
 use "lukas-reineke/indent-blankline.nvim"
 use "mhartington/formatter.nvim"
-
-
 
 -- Completions and snippets -- example: https://github.com/hrsh7th/nvim-cmp
 use {"hrsh7th/nvim-cmp"} -- Autocompletion plugin
