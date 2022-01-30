@@ -25,7 +25,13 @@ map("n", "<Leader>gi", ":grep -i<Space>", { noremap = true }) -- Open :grep with
 
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>mm",
+	"<leader>ma",
 	[[<Cmd>lua require('material.functions').toggle_style()<CR>]],
+	{ noremap = true, silent = true }
+)
+vim.api.nvim_set_keymap(
+	"n",
+	"<leader>rp",
+	[[<cmd>lua require('rose-pine').toggle()<cr>]],
 	{ noremap = true, silent = true }
 )

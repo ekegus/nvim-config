@@ -1,3 +1,4 @@
+local vim = vim
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
@@ -54,6 +55,8 @@ use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp"
 -- Theme
 use("marko-cerovac/material.nvim")
 use("bluz71/vim-nightfly-guicolors")
+use("rose-pine/neovim")
+use("shaunsingh/nord.nvim")
 
 use({ "ggandor/lightspeed.nvim", requires = { "tpope/vim-repeat" } }) -- motion
 use({

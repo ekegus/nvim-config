@@ -1,10 +1,13 @@
+local vim = vim
+
 -- Theme
 vim.opt.termguicolors = true
 
 -- vim.g.material_style = "deep ocean"
 
 -- vim.cmd[[colorscheme material]]
-vim.cmd[[colorscheme nightfly]]
+-- vim.cmd([[colorscheme nightfly]])
+require('rose-pine').set('moon')
 
 -- Vim mappings
 require("map")
@@ -24,6 +27,5 @@ require("config/indent-blankline")
 
 -- require("config/tabnine")
 require("config/formatter")
--- TODO
--- 1. Take a look at these settings: https://github.com/jose-elias-alvarez/dotfiles/blob/main/config/nvim/lua/plugins/init.lua
--- 2. Import config in a better way. 
+-- 1. Create local stylua.toml file and update formatter config.
+-- 2. Import config in a better way.
