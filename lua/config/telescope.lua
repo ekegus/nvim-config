@@ -53,7 +53,7 @@ vim.api.nvim_set_keymap(
 )
 vim.api.nvim_set_keymap(
 	"n",
-	"<leader>b",
+	"<leader>bu",
 	[[<cmd>lua require('telescope.builtin').buffers()<CR>]],
 	{ noremap = true, silent = true }
 )

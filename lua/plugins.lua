@@ -4,12 +4,6 @@ local fn = vim.fn
 
 local install_path = fn.stdpath("data") .. "/site/pack/packer/start/packer.nvim"
 
--- returns the require for use in `config` parameter of packer's use
--- expects the name of the config file
-function get_config(name)
-	return string.format('require("config/%s")', name)
-end
-
 -- bootstrap packer if not installed
 if fn.empty(fn.glob(install_path)) > 0 then
 	fn.system({
@@ -33,24 +27,22 @@ packer.reset()
 -- actual plugins list
 use("wbthomason/packer.nvim") -- Package manager
 use("tpope/vim-commentary") -- "gc" to comment visual regions/lines
-use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" } })
-use({ "neovim/nvim-lspconfig" }) -- https://github.com/neovim/nvim-lspconfig -- Collection of configurations for built-in LSP
-use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }) -- Imrpoved diagnostics tool
-use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" } }) -- UI to select things (files, grep results, open buffers...)
+use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" }, config = require("config/git-signs") })
+use({ "neovim/nvim-lspconfig", config = require("config/lsp-config") }) -- https://github.com/neovim/nvim-lspconfig -- Collection of configurations for built-in LSP
+use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", config = require("config/trouble") }) -- Imrpoved diagnostics tool
+use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" }, config = require("config/telescope") }) -- UI to select things (files, grep results, open buffers...)
 use({ "nvim-telescope/telescope-file-browser.nvim" })
 use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
-use("nvim-treesitter/nvim-treesitter")
-use("lukas-reineke/indent-blankline.nvim")
-use("mhartington/formatter.nvim")
+use({ "nvim-treesitter/nvim-treesitter", config = require("config/treesitter") })
+use({ "mhartington/formatter.nvim", config = require("config/formatter") })
 
 -- Completions and snippets -- example: https://github.com/hrsh7th/nvim-cmp
-use({ "hrsh7th/nvim-cmp" }) -- Autocompletion plugin
+use({ "hrsh7th/nvim-cmp", config = require("config/nvim-cmp") }) -- Autocompletion plugin
 use("hrsh7th/cmp-nvim-lsp") -- LSP source for nvim-cmp
-
 use("hrsh7th/cmp-vsnip") -- https://github.com/hrsh7th/cmp-vsnip/tree/0abfa1860f5e095a07c477da940cfcb0d273b700
 use("hrsh7th/vim-vsnip") -- Snippet engine -- https://github.com/hrsh7th/vim-vsnip
 use("rafamadriz/friendly-snippets") -- https://github.com/rafamadriz/friendly-snippets
-use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp" })
+use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp", config = require("config/tabnine") })
 
 -- Theme
 use("marko-cerovac/material.nvim")
@@ -58,10 +50,19 @@ use("bluz71/vim-nightfly-guicolors")
 use("rose-pine/neovim")
 use("shaunsingh/nord.nvim")
 
-use({ "ggandor/lightspeed.nvim", requires = { "tpope/vim-repeat" } }) -- motion
-use({
-	"nvim-lualine/lualine.nvim",
-	requires = { "kyazdani42/nvim-web-devicons", opt = true },
-})
+-- Motion
+use({ "ggandor/lightspeed.nvim", requires = { "tpope/vim-repeat" } })
 
 use("p00f/nvim-ts-rainbow")
+
+use({
+	"romgrk/barbar.nvim",
+	requires = { "kyazdani42/nvim-web-devicons" },
+	config = require("config/barbar"),
+})
+-- use("lukas-reineke/indent-blankline.nvim")
+
+-- use({
+-- 	"nvim-lualine/lualine.nvim",
+-- 	requires = { "kyazdani42/nvim-web-devicons", opt = true },
+-- })

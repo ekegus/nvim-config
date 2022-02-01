@@ -1,5 +1,5 @@
 local vim = vim
-local format = require("formatter")
+-- local format = require("formatter")
 
 local prettier = function()
 	return {
@@ -17,7 +17,7 @@ local lua = function()
 	}
 end
 
-format.setup({
+require("formatter").setup({
 	logging = false,
 	filetype = {
 		css = { prettier },
