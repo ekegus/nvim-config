@@ -29,3 +29,11 @@ map("n", "<Leader>bl", ":BufferOrderByLanguage<CR>", { noremap = true, silent = 
 
 map("n", "<Leader>bw", ":BufferWipeout<CR>", { noremap = true, silent = true })
 map("n", "<Leader>ba", ":BufferCloseAllButCurrent<CR>", { noremap = true, silent = true })
+
+map("n", "<C-p>", ":BufferPick<CR>", { noremap = true, silent = true })
+
+vim.g.bufferline = {
+	icons = "both",
+	semantic_letters = true,
+	letters = "asdfjkl;ghnmxcvbziowerutyqpASDFJKLGHNMXCVBZIOWERUTYQP",
+}
