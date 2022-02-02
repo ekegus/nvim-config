@@ -30,11 +30,15 @@ use("tpope/vim-commentary") -- "gc" to comment visual regions/lines
 use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" }, config = require("config/git-signs") })
 use({ "neovim/nvim-lspconfig", config = require("config/lsp-config") }) -- https://github.com/neovim/nvim-lspconfig -- Collection of configurations for built-in LSP
 use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", config = require("config/trouble") }) -- Imrpoved diagnostics tool
-use({ "nvim-telescope/telescope.nvim", requires = { "nvim-lua/plenary.nvim" }, config = require("config/telescope") }) -- UI to select things (files, grep results, open buffers...)
+use({
+	"nvim-telescope/telescope.nvim",
+	requires = { "nvim-lua/plenary.nvim" },
+	config = require("config/telescope-config"),
+}) -- UI to select things (files, grep results, open buffers...)
 use({ "nvim-telescope/telescope-file-browser.nvim" })
 use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" })
 use({ "nvim-treesitter/nvim-treesitter", config = require("config/treesitter") })
-use({ "mhartington/formatter.nvim", config = require("config/formatter") })
+use({ "mhartington/formatter.nvim", config = require("config/formatter-config") })
 
 -- Completions and snippets -- example: https://github.com/hrsh7th/nvim-cmp
 use({ "hrsh7th/nvim-cmp", config = require("config/nvim-cmp") }) -- Autocompletion plugin

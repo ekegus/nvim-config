@@ -107,12 +107,7 @@ vim.api.nvim_set_keymap(
 	[[<cmd>lua require('telescope.builtin').lsp_implementations()<CR>]],
 	{ noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
-	"n",
-	"gI",
-	[[<cmd>lua require('telescope.builtin').lsp_implementations({jump_type = 'vsplit'})<CR>]],
-	{ noremap = true, silent = true }
-)
+
 vim.api.nvim_set_keymap(
 	"n",
 	"gt",
