@@ -24,5 +24,5 @@ vim.cmd([[
 -- ]]
 
 -- Make :find useful
--- cmd("set path=$PWD/src/**")
--- cmd("set path+=$PWD/test/**")
+cmd("set path=$PWD/src/**")
+cmd("set path+=$PWD/test/**")

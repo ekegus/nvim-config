@@ -52,6 +52,7 @@ use({ "tzachar/cmp-tabnine", run = "./install.sh", requires = "hrsh7th/nvim-cmp"
 use("marko-cerovac/material.nvim")
 use("bluz71/vim-nightfly-guicolors")
 use("rose-pine/neovim")
+use("EdenEast/nightfox.nvim")
 use("shaunsingh/nord.nvim")
 
 -- Motion
@@ -64,6 +65,9 @@ use({
 	requires = { "kyazdani42/nvim-web-devicons" },
 	config = require("config/barbar"),
 })
+
+use({ "norcalli/nvim-colorizer.lua" })
+require("colorizer").setup()
 -- use("lukas-reineke/indent-blankline.nvim")
 
 -- use({
