@@ -1,12 +1,5 @@
 local vim = vim
-
-local function map(mode, lhs, rhs, opts)
-	local options = { noremap = true }
-	if opts then
-		options = vim.tbl_extend("force", options, opts)
-	end
-	vim.api.nvim_set_keymap(mode, lhs, rhs, options)
-end
+local map = require("utils").map
 
 map("n", "<Leader>1", ":BufferGoto 1<CR>", { noremap = true, silent = true })
 map("n", "<Leader>2", ":BufferGoto 2<CR>", { noremap = true, silent = true })

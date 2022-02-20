@@ -54,11 +54,13 @@ use("bluz71/vim-nightfly-guicolors")
 use("rose-pine/neovim")
 use("EdenEast/nightfox.nvim")
 use("shaunsingh/nord.nvim")
+use("mhartington/oceanic-next")
+use("ekegus/nightowl")
 
 -- Motion
 use({ "ggandor/lightspeed.nvim", requires = { "tpope/vim-repeat" } })
 
-use("p00f/nvim-ts-rainbow")
+-- use("p00f/nvim-ts-rainbow")
 
 use({
 	"romgrk/barbar.nvim",

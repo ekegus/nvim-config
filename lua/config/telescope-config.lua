@@ -1,5 +1,6 @@
 local vim = vim
 local trouble = require("trouble.providers.telescope")
+local map = require("utils").map
 
 require("telescope").setup({
 	defaults = {
@@ -17,7 +18,7 @@ require("telescope").setup({
 
 -- File browser extension
 require("telescope").load_extension("file_browser")
-vim.api.nvim_set_keymap(
+map(
 	"n",
 	"<leader>fb",
 	[[<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>]],
@@ -28,105 +29,60 @@ vim.api.nvim_set_keymap(
 require("telescope").load_extension("fzf")
 
 -- Launch Telescope
-vim.api.nvim_set_keymap("n", "<leader><leader>", ":Telescope<CR>", { noremap = true, silent = true })
+map("n", "<leader><leader>", ":Telescope<CR>", { noremap = true, silent = true })
 
 -- File Pickers
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>fw",
-	[[<cmd>lua require('telescope.builtin').live_grep()<CR>]],
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>ff",
-	[[<cmd>lua require('telescope.builtin').find_files()<CR>]],
-	{ noremap = true, silent = true }
-)
+map("n", "<leader>fw", [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
+map("n", "<leader>ff", [[<cmd>lua require('telescope.builtin').find_files()<CR>]], { noremap = true, silent = true })
 
 -- Vim Pickers
-vim.api.nvim_set_keymap(
-	"n",
-	"<Leader>c",
-	[[<cmd>lua require('telescope.builtin').commands()<CR>]],
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>bu",
-	[[<cmd>lua require('telescope.builtin').buffers()<CR>]],
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
+map("n", "<Leader>c", [[<cmd>lua require('telescope.builtin').commands()<CR>]], { noremap = true, silent = true })
+map("n", "<leader>bu", [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
+map(
 	"n",
 	"<leader>cb",
 	[[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]],
 	{ noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>tc",
-	[[<cmd>lua require('telescope.builtin').colorscheme()<CR>]],
-	{ noremap = true, silent = true }
-)
+map("n", "<leader>tc", [[<cmd>lua require('telescope.builtin').colorscheme()<CR>]], { noremap = true, silent = true })
 
 -- LSP Pickers
-vim.api.nvim_set_keymap(
-	"n",
-	"gr",
-	[[<cmd>lua require('telescope.builtin').lsp_references()<CR>]],
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
+map("n", "gr", [[<cmd>lua require('telescope.builtin').lsp_references()<CR>]], { noremap = true, silent = true })
+map(
 	"n",
 	"<leader>do",
 	[[<cmd>lua require('telescope.builtin').diagnostics({bufnr = 0})<CR>]],
 	{ noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
 	"n",
 	"<leader>ac",
 	[[<cmd>lua require('telescope.builtin').lsp_code_actions()<CR>]],
 	{ noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
 	"n",
 	"<leader>ds",
 	[[<cmd>lua require('telescope.builtin').lsp_document_symbols()<CR>]],
 	{ noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
+map(
 	"n",
 	"<leader>ws",
 	[[<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>]],
 	{ noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
-	"n",
-	"gi",
-	[[<cmd>lua require('telescope.builtin').lsp_implementations()<CR>]],
-	{ noremap = true, silent = true }
-)
+map("n", "gi", [[<cmd>lua require('telescope.builtin').lsp_implementations()<CR>]], { noremap = true, silent = true })
 
-vim.api.nvim_set_keymap(
-	"n",
-	"gt",
-	[[<cmd>lua require('telescope.builtin').lsp_type_definitions()<CR>]],
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
+map("n", "gt", [[<cmd>lua require('telescope.builtin').lsp_type_definitions()<CR>]], { noremap = true, silent = true })
+map(
 	"n",
 	"gT",
 	[[<cmd>lua require('telescope.builtin').lsp_type_definitions({jump_type = 'vsplit'})<CR>]],
 	{ noremap = true, silent = true }
 )
-vim.api.nvim_set_keymap(
-	"n",
-	"gd",
-	[[<cmd>lua require('telescope.builtin').lsp_definitions()<CR>]],
-	{ noremap = true, silent = true }
-)
-vim.api.nvim_set_keymap(
+map("n", "gd", [[<cmd>lua require('telescope.builtin').lsp_definitions()<CR>]], { noremap = true, silent = true })
+map(
 	"n",
 	"gD",
 	[[<cmd>lua require('telescope.builtin').lsp_definitions({jump_type = 'vsplit'})<CR>]],
@@ -134,9 +90,4 @@ vim.api.nvim_set_keymap(
 )
 
 -- Git Pickers
-vim.api.nvim_set_keymap(
-	"n",
-	"<leader>fg",
-	[[<cmd>lua require('telescope.builtin').git_status()<CR>]],
-	{ noremap = true, silent = true }
-)
+map("n", "<leader>fg", [[<cmd>lua require('telescope.builtin').git_status()<CR>]], { noremap = true, silent = true })
