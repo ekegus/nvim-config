@@ -17,9 +17,16 @@ map("n", "<Leader>cl", 'iconsole.log("")<Esc>bla', { noremap = true }) -- List b
 map("n", "<Leader>c{", "iconsole.log({})<Esc>bf{a", { noremap = true }) -- List buffers and open command menu
 map("n", "<Leader>fi", ":find<Space>", { noremap = true }) -- Open :find
 map("n", "<Leader>gi", ":grep -i<Space>", { noremap = true }) -- Open :grep with insensitive search
+
+-------------------------Terminal-----------------------------
+map("n", "<Leader>te", ":terminal<CR>", { noremap = true })
+map("n", "<Leader>tv", ":vsplit<cr> :terminal<CR>", { noremap = true })
+map("n", "<Leader>th", ":split<cr> :terminal<CR>", { noremap = true })
+map("t", "<Esc>", "<C-\\><C-n>")
 -------------------------THEMES TOGGLE-----------------------------
 map("n", "<leader>ma", [[<Cmd>lua require('material.functions').toggle_style()<CR>]], {
 	noremap = true,
 	silent = true,
 })
 map("n", "<leader>rp", [[<cmd>lua require('rose-pine').toggle()<cr>]], { noremap = true, silent = true })
+

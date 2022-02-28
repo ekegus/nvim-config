@@ -1,3 +1,4 @@
+local g = vim.g
 local opt = vim.opt -- to set options
 
 -------------------- OPTIONS -------------------------------
@@ -29,3 +30,9 @@ opt.foldenable = false
 -- Avoid E37 on buffer change
 -- https://medium.com/usevim/vim-101-set-hidden-f78800142855
 opt.hidden = true
+
+-- Avoid netrw throwing errors when moving files
+g.netrw_keepdir = 0
+
+-- Copy files recursively so that I can easily duplicate folders
+g.netrw_localcopydircmd = "cp -r"

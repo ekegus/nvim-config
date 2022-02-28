@@ -26,3 +26,11 @@ vim.cmd([[
 -- Make :find useful
 cmd("set path=$PWD/src/**")
 cmd("set path+=$PWD/test/**")
+
+-------------------- TERMINAL ---------------------------
+-- always start in insert mode
+vim.cmd("autocmd TermOpen * startinsert")
+-- disable line numbers
+vim.cmd("autocmd TermOpen * setlocal nonumber norelativenumber")
+-- suppress process exited message
+vim.cmd("autocmd TermClose term://*lazygit execute 'bdelete! ' . expand('<abuf>')")
