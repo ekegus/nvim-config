@@ -33,10 +33,11 @@ map("n", "<leader><leader>", ":Telescope<CR>", { noremap = true, silent = true }
 
 -- File Pickers
 map("n", "<leader>fw", [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
+map("n", "<leader>lg", [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
 map("n", "<leader>ff", [[<cmd>lua require('telescope.builtin').find_files()<CR>]], { noremap = true, silent = true })
 
 -- Vim Pickers
-map("n", "<Leader>c", [[<cmd>lua require('telescope.builtin').commands()<CR>]], { noremap = true, silent = true })
+map("n", "<Leader>co", [[<cmd>lua require('telescope.builtin').commands()<CR>]], { noremap = true, silent = true })
 map("n", "<leader>bu", [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
 map(
 	"n",
@@ -44,13 +45,13 @@ map(
 	[[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]],
 	{ noremap = true, silent = true }
 )
-map("n", "<leader>tc", [[<cmd>lua require('telescope.builtin').colorscheme()<CR>]], { noremap = true, silent = true })
+map("n", "<leader>cs", [[<cmd>lua require('telescope.builtin').colorscheme()<CR>]], { noremap = true, silent = true })
 
 -- LSP Pickers
 map("n", "gr", [[<cmd>lua require('telescope.builtin').lsp_references()<CR>]], { noremap = true, silent = true })
 map(
 	"n",
-	"<leader>do",
+	"<leader>di",
 	[[<cmd>lua require('telescope.builtin').diagnostics({bufnr = 0})<CR>]],
 	{ noremap = true, silent = true }
 )
@@ -69,7 +70,7 @@ map(
 map(
 	"n",
 	"<leader>ws",
-	[[<cmd>lua require('telescope.builtin').lsp_workspace_symbols()<CR>]],
+	[[<cmd>lua require('telescope.builtin').lsp_dynamic_workspace_symbols()<CR>]],
 	{ noremap = true, silent = true }
 )
 map("n", "gi", [[<cmd>lua require('telescope.builtin').lsp_implementations()<CR>]], { noremap = true, silent = true })

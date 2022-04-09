@@ -1,1 +1,1 @@
-vim.cmd([[colorscheme oceanicnext]])
+vim.cmd([[colorscheme nightowl]])

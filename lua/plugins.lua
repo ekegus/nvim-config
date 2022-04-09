@@ -27,6 +27,7 @@ packer.reset()
 -- actual plugins list
 use("wbthomason/packer.nvim") -- Package manager
 use("tpope/vim-commentary") -- "gc" to comment visual regions/lines
+use({ "sindrets/diffview.nvim", requires = "nvim-lua/plenary.nvim" })
 use({ "lewis6991/gitsigns.nvim", requires = { "nvim-lua/plenary.nvim" }, config = require("config/git-signs") })
 use({ "neovim/nvim-lspconfig", config = require("config/lsp-config") }) -- https://github.com/neovim/nvim-lspconfig -- Collection of configurations for built-in LSP
 use({ "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons", config = require("config/trouble") }) -- Imrpoved diagnostics tool
@@ -56,23 +57,42 @@ use("EdenEast/nightfox.nvim")
 use("shaunsingh/nord.nvim")
 use("mhartington/oceanic-next")
 use("ekegus/nightowl")
+use("folke/tokyonight.nvim")
 
 -- Motion
 use({ "ggandor/lightspeed.nvim", requires = { "tpope/vim-repeat" } })
 
 -- use("p00f/nvim-ts-rainbow")
 
-use({
-	"romgrk/barbar.nvim",
-	requires = { "kyazdani42/nvim-web-devicons" },
-	config = require("config/barbar"),
-})
+-- use({
+-- 	"romgrk/barbar.nvim",
+-- 	requires = { "kyazdani42/nvim-web-devicons" },
+-- 	config = require("config/barbar"),
+-- })
 
-use({ "norcalli/nvim-colorizer.lua" })
-require("colorizer").setup()
+use({ "norcalli/nvim-colorizer.lua", config = require("colorizer").setup() })
 -- use("lukas-reineke/indent-blankline.nvim")
 
 -- use({
 -- 	"nvim-lualine/lualine.nvim",
 -- 	requires = { "kyazdani42/nvim-web-devicons", opt = true },
 -- })
+
+use({ "windwp/nvim-autopairs", config = require("nvim-autopairs").setup({}) })
+use({ "windwp/nvim-ts-autotag" })
+
+use({
+	"folke/which-key.nvim",
+	config = function()
+		require("which-key").setup({})
+	end,
+})
+
+use({
+	"startup-nvim/startup.nvim",
+	requires = { "nvim-telescope/telescope.nvim", "nvim-lua/plenary.nvim" },
+	config = function()
+		require("startup").setup()
+	end,
+})
+use({ "andymass/vim-matchup" })

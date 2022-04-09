@@ -32,4 +32,12 @@ require("nvim-treesitter.configs").setup({
 	-- 	}, -- table of hex strings
 	-- 	-- termcolors = {} -- table of colour name strings
 	-- },
+	--
+
+	autotag = {
+		enable = true,
+	},
+	matchup = {
+		enable = true, -- mandatory, false will disable the whole extension
+	},
 })

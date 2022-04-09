@@ -13,6 +13,15 @@ map("n", "<Leader>ls", ":buffers<CR>:buffer<Space>", { noremap = true }) -- List
 map("", "q", "<Nop>", { noremap = false }) -- Disable recording macros
 map("", "Q", "<Nop>", { noremap = false }) -- Disable Ex Mode
 
+map("n", "<Leader>tn", ":tabnext<CR>", { noremap = true })
+map("n", "<Leader>tp", ":tabprevious<CR>", { noremap = true })
+map("n", "<Leader>tc", ":tabclose<CR>", { noremap = true })
+map("n", "<Leader>ta", ":tabnew<CR>", { noremap = true })
+
+map("n", "<Leader>do", ":DiffviewOpen<CR>", { noremap = true })
+map("n", "<Leader>dc", ":DiffviewClose<CR>", { noremap = true })
+map("n", "<Leader>dh", ":DiffviewFileHistory<CR>", { noremap = true })
+
 map("n", "<Leader>cl", 'iconsole.log("")<Esc>bla', { noremap = true }) -- List buffers and open command menu
 map("n", "<Leader>c{", "iconsole.log({})<Esc>bf{a", { noremap = true }) -- List buffers and open command menu
 map("n", "<Leader>fi", ":find<Space>", { noremap = true }) -- Open :find
@@ -29,4 +38,3 @@ map("n", "<leader>ma", [[<Cmd>lua require('material.functions').toggle_style()<C
 	silent = true,
 })
 map("n", "<leader>rp", [[<cmd>lua require('rose-pine').toggle()<cr>]], { noremap = true, silent = true })
-

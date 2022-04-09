@@ -32,7 +32,14 @@ opt.foldenable = false
 opt.hidden = true
 
 -- Avoid netrw throwing errors when moving files
-g.netrw_keepdir = 0
+-- g.netrw_keepdir = 0
+-- Open preview in a vertical tab
+g.netrw_preview = 1
 
 -- Copy files recursively so that I can easily duplicate folders
 g.netrw_localcopydircmd = "cp -r"
+
+opt.timeoutlen = 500
+
+g.loaded_netrw = 1
+g.loaded_netrwPlugin = 1

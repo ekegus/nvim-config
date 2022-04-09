@@ -17,6 +17,17 @@ local lua = function()
 	}
 end
 
+local python = function()
+	return {
+		exe = "python3 -m autopep8",
+		args = {
+			"--in-place --aggressive --aggressive",
+			vim.fn.fnameescape(vim.api.nvim_buf_get_name(0)),
+		},
+		stdin = false,
+	}
+end
+
 require("formatter").setup({
 	logging = false,
 	filetype = {
@@ -31,6 +42,7 @@ require("formatter").setup({
 		json = { prettier },
 		jsonc = { prettier },
 		lua = { lua },
+		python = { python },
 	},
 })
 
@@ -41,7 +53,7 @@ vim.api.nvim_exec(
 	[[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.rs,*.tsx,*.ts,*.json,*.lua FormatWrite
+  autocmd BufWritePost *.js,*.rs,*.tsx,*.ts,*.json,*.lua,*.py FormatWrite
 augroup END
 ]],
 	true

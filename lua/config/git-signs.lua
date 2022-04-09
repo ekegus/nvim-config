@@ -5,10 +5,9 @@ require("gitsigns").setup({
 		delay = 1000,
 	},
 	keymaps = {
-		["n gn"] = { expr = true, "&diff ? 'gn' : '<cmd>Gitsigns next_hunk<CR>'" },
-		["n gp"] = { expr = true, "&diff ? 'gp' : '<cmd>Gitsigns prev_hunk<CR>'" },
+		["n <leader>gn"] = { expr = true, "&diff ? 'gn' : '<cmd>Gitsigns next_hunk<CR>'" },
+		["n <leader>gp"] = { expr = true, "&diff ? 'gp' : '<cmd>Gitsigns prev_hunk<CR>'" },
 		["v <Leader>gu"] = ":Gitsigns reset_hunk<CR>",
 		["n <leader>gu"] = "<cmd>Gitsigns reset_hunk<CR>",
-		["n <leader>gd"] = "<cmd>Gitsigns diffthis<CR>",
 	},
 })
