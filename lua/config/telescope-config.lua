@@ -21,7 +21,7 @@ require("telescope").load_extension("file_browser")
 map(
 	"n",
 	"<leader>fb",
-	[[<cmd>lua require('telescope').extensions.file_browser.file_browser()<CR>]],
+	[[<cmd>lua require('telescope').extensions.file_browser.file_browser({path='%:p:h'})<CR>]],
 	{ noremap = true, silent = true }
 )
 
