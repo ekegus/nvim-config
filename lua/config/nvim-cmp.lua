@@ -5,6 +5,7 @@ vim.o.completeopt = "menuone,noselect"
 
 -- Setup nvim-cmp.
 local cmp = require("cmp")
+local types = require("cmp.types")
 
 cmp.setup({
 	snippet = {
@@ -22,6 +23,18 @@ cmp.setup({
 			c = cmp.mapping.close(),
 		}),
 		["<CR>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+		["<C-n>"] = {
+			i = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Insert }),
+		},
+		["<C-p>"] = {
+			i = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Insert }),
+		},
+		["<Down>"] = {
+			i = cmp.mapping.select_next_item({ behavior = types.cmp.SelectBehavior.Select }),
+		},
+		["<Up>"] = {
+			i = cmp.mapping.select_prev_item({ behavior = types.cmp.SelectBehavior.Select }),
+		},
 	},
 	sources = cmp.config.sources({
 		{ name = "nvim_lsp" },
